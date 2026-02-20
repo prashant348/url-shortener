@@ -36,7 +36,11 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
 
 ### Features to Implement:
 
-- [ ] **Project setup** (TypeScript, Express, Prisma)
+- [x] **Project setup** (Express, TypeScript)
+- [ ] **Prisma setup**
+  - Prisma Initialization
+  - Database migration
+  - Prisma client generation
 - [ ] **Short Code Generator Utility**
   - Random alphanumeric generation (6-7 chars)
   - Collision detection & retry logic
@@ -49,7 +53,7 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
   - `GET /:shortCode` - Redirect to original URL
   - 302 temporary redirect
   - 404 handling for invalid codes
-- [ ] **Health Check Endpoint**
+- [x] **Health Check Endpoint**
   - `GET /health` - API health status
 - [ ] **Database Schema**
   - `urls` table (id, short_code, original_url, created_at)
@@ -73,6 +77,37 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
 
 ---
 
+## 🏗️ Architecture Overview
+
+### V1:Basic Monolith
+```
+┌─────────────┐
+│   Client    │
+│  (Browser)  │
+└──────┬──────┘
+       │
+       ↓
+┌─────────────────────────────┐
+│  Express.js API Server      │
+│  ┌──────────────────────┐   │
+│  │ POST /api/shorten    │   │
+│  │ GET  /:shortCode     │   │
+│  └──────────────────────┘   │
+└──────┬──────────────────────┘
+       │
+       ↓
+┌─────────────────────────────┐
+│  PostgreSQL                 │
+│  ┌──────────────────────┐   │
+│  │ urls table:          │   │
+│  │ - id                 │   │
+│  │ - short_code         │   │
+│  │ - original_url       │   │
+│  │ - created_at         │   │
+│  └──────────────────────┘   │
+└─────────────────────────────┘
+```
+---
 ## 📁 Project Structure (V1)
 ```
 url-shortener/
