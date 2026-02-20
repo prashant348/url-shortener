@@ -2,11 +2,11 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "A production-grade, cloud-native URL shortener backend built with Node.js and TypeScript, designed to learn and demonstrate modern backend engineering practices including containerization, orchestration, monitoring, and scalable architecture.",
-  "main": "src/server.ts",
+  "main": "dist/server.js",
   "type": "module",
   "scripts": {
-    "dev": "npx tsx watch src/server.ts",
-    "build": "npx tsc",
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
     "start": "node dist/server.js"
   },
   "repository": {
