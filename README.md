@@ -58,10 +58,13 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
 - [ ] **Database Schema**
   - `urls` table (id, short_code, original_url, created_at)
   - Proper indexing on short_code
-- [ ] **Docker Setup**
-  - Dockerfile for application
-  - docker-compose.yml for local development
+- [x] **PostgreSQL Docker Setup**
+  - `docker-compose.yml` for local development
   - PostgreSQL container setup
+- [ ] **Express Server Docker Setup**
+  - `Dokerfile` for express server
+  - `docker-compose.yml` for local development
+  - Express server container setup 
 - [ ] **Basic Error Handling**
   - Input validation
   - Database error handling
