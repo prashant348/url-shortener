@@ -37,7 +37,7 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
 ### Features to Implement:
 
 - [x] **Project setup** (Express, TypeScript)
-- [ ] **Prisma setup**
+- [x] **Prisma setup**
   - Prisma Initialization
   - Database migration
   - Prisma client generation
@@ -294,6 +294,11 @@ By completing this project, you will learn:
 - Better for learning SQL optimization
 
 ---
+
+## 📚 Documentation
+
+- [Project Setup Guide](./docs/project-setup.md)
+- [Prisma Setup Guide](./docs/prisma-setup.md)
 
 ## 🤝 Contributing
 
