@@ -23,12 +23,13 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
 
 | Category | Technology |
 |----------|-----------|
-| Language | TypeScript |
-| Runtime | Node.js |
-| Framework | Express.js |
-| Database | PostgreSQL |
-| ORM | Prisma |
-| Containerization | Docker |
+| Language | <img src="https://skillicons.dev/icons?i=ts" /> |
+| Runtime | <img src="https://skillicons.dev/icons?i=nodejs" /> |
+| Framework | <img src="https://skillicons.dev/icons?i=expressjs" /> |
+| Database | <img src="https://skillicons.dev/icons?i=postgres" /> |
+| ORM | <img src="https://skillicons.dev/icons?i=prisma" /> |
+| Containerization | <img src="https://skillicons.dev/icons?i=docker" /> |
+| Test framework | <img src="https://skillicons.dev/icons?i=vitest" /> |
 
 ---
 
@@ -41,6 +42,11 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
   - Prisma Initialization
   - Database migration
   - Prisma client generation
+- [x] **Graceful Shutdown**
+  - Stop accepting new work
+  - Requests draining
+  - Perform clean up
+  - Enforce a timeout (safety net)
 - [ ] **Short Code Generator Utility**
   - Random alphanumeric generation (6-7 chars)
   - Collision detection & retry logic
@@ -55,7 +61,7 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
   - 404 handling for invalid codes
 - [x] **Health Check Endpoint**
   - `GET /health` - API health status
-- [ ] **Database Schema**
+- [x] **Database Schema**
   - `urls` table (id, short_code, original_url, created_at)
   - Proper indexing on short_code
 - [x] **PostgreSQL Docker Setup**
@@ -130,6 +136,7 @@ url-shortener/
 │       └── index.ts          # TypeScript types
 ├── prisma/
 │   └── schema.prisma         # Database schema
+├── tests/                    # Tests
 ├── docker-compose.yml        # Local dev environment
 ├── Dockerfile                # Container image
 ├── .env.example              # Environment template
@@ -139,7 +146,8 @@ url-shortener/
 ├── package.json
 ├── prisma.config.ts
 ├── tsconfig.json
-└── README.md
+├── README.md
+└── vitest.config.ts
 ```
 
 ---
@@ -249,7 +257,7 @@ model Url {
 
 ## 🧪 Testing (Planned)
 
-- [ ] Unit tests (Jest)
+- [x] Unit tests (Vitest)
 - [ ] Integration tests
 - [ ] Load testing (k6/Apache Bench)
 - [ ] CI/CD pipeline (GitHub Actions)
@@ -299,6 +307,7 @@ By completing this project, you will learn:
 
 - [Project Setup Guide](./docs/project-setup.md)
 - [Prisma Setup Guide](./docs/prisma-setup.md)
+- [Graceful Shutdown](./docs/graceful-shutdown.md)
 
 ## 🤝 Contributing
 
@@ -307,4 +316,4 @@ This is a learning project, but feedback and suggestions are welcome!
 ---
 
 **Status:** 🚧 Work in Progress - Building V1  
-**Last Updated:** 2/20/2026
+**Last Updated:** 2/25/2026
