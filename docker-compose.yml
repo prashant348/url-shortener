@@ -2,7 +2,7 @@ services:
   postgres:
     image: postgres:15-alpine
     ports:
-      - "5432:5432"
+      - "5433:5432" # 5433 host, 5432 container
     env_file:
       - .env
     volumes:
