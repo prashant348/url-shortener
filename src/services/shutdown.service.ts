@@ -19,7 +19,7 @@ export class ShutdownService implements IShutdownService {
     public monitorRequests(req: Request, res: Response, next: NextFunction): void {
         // manually block new requests immediately while shutting down
         if (this._isShuttingDown) {
-            console.log("new req rejected while shutting down");
+            // console.log("new req rejected while shutting down");
             res.status(503).set("Connection", "close").json({
                 error: "Server is shutting down",
                 message: "Try again later",
@@ -28,12 +28,12 @@ export class ShutdownService implements IShutdownService {
         };
 
         this._activeRequests++;
-        console.log("active reqs: ", this._activeRequests);
+        // console.log("active reqs: ", this._activeRequests);
 
         res.on("finish", () => {
-            console.log("req finished");
+            // console.log("req finished");
             this._activeRequests--;
-            console.log("active reqs: ", this._activeRequests);
+            // console.log("active reqs: ", this._activeRequests);
             if (this._isShuttingDown && this._activeRequests === 0) {
                 process.emit("CLEANUP_READY"); // Custom signal to trigger final cleanup
             };
