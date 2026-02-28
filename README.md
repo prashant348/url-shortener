@@ -260,7 +260,7 @@ model Url {
 ## 🧪 Testing (Planned)
 
 - [x] Unit tests (Vitest)
-- [ ] Integration tests
+- [x] Integration tests
 - [ ] Load testing (k6/Apache Bench)
 - [ ] CI/CD pipeline (GitHub Actions)
 
@@ -318,4 +318,4 @@ This is a learning project, but feedback and suggestions are welcome!
 ---
 
 **Status:** 🚧 Work in Progress - Building V1  
-**Last Updated:** 2/25/2026
+**Last Updated:** 3/1/2026
