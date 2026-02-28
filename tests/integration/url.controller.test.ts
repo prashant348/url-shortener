@@ -2,6 +2,7 @@ import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import request from "supertest";
 import { app } from "../../src/server";
 import { db } from "../../src/db/db";
+import { ShortenedUrlResponse } from "../../src/types/url.types";
 
 describe("Url Controller Integration Tests", () => {
     beforeAll(async () => {
@@ -35,8 +36,16 @@ describe("Url Controller Integration Tests", () => {
     });
     
     it("should redirect to original url", async () => {
+        // test should create its own data
+        const createRes = await request(app)
+            .post("/api/shorten")
+            .send({ url: "https://example.com" });
+        
+        const shortCode = (createRes.body.shortUrl as ShortenedUrlResponse).shortUrl.split("/").pop();
+
+
         const res = await request(app)
-            .get("/7o53vW")
+            .get(`/${shortCode}`)
         
         expect(res.status).toBe(302);
         expect(res.headers.location).toBe("https://example.com");
