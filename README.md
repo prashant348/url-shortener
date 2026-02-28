@@ -47,15 +47,15 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
   - Requests draining
   - Perform clean up
   - Enforce a timeout (safety net)
-- [ ] **Short Code Generator Utility**
+- [x] **Short Code Generator Utility**
   - Random alphanumeric generation (6-7 chars)
   - Collision detection & retry logic
-- [ ] **URL Shortening API**
+- [x] **URL Shortening API**
   - `POST /api/shorten` - Create short URL
   - URL validation
   - Unique short code generation
   - Store mapping in PostgreSQL
-- [ ] **Redirect Service**
+- [x] **Redirect Service**
   - `GET /:shortCode` - Redirect to original URL
   - 302 temporary redirect
   - 404 handling for invalid codes
@@ -71,7 +71,7 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
   - `Dokerfile` for express server
   - `docker-compose.yml` for local development
   - Express server container setup 
-- [ ] **Basic Error Handling**
+- [x] **Basic Error Handling**
   - Input validation
   - Database error handling
   - Graceful error responses
@@ -137,6 +137,8 @@ url-shortener/
 ├── prisma/
 │   └── schema.prisma         # Database schema
 ├── tests/                    # Tests
+│   └── unit/                 # unit tests
+│   └── integration/          # integration test
 ├── docker-compose.yml        # Local dev environment
 ├── Dockerfile                # Container image
 ├── .env.example              # Environment template
