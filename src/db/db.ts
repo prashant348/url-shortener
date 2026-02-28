@@ -2,12 +2,13 @@ import { DatabaseService } from "../services/database.service.js";
 import { ENV } from "../config/env.js";
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "../generated/prisma/client.js";
+import { ConnectionStringNotFoundError } from "../errors/ConnectionStringNotFoundError.js";
 
 const connectionString = ENV.DATABASE_URL;
 
 if (!connectionString) {
-    throw new Error("Missing DATABASE_URL environment variable");
-}
+    throw new ConnectionStringNotFoundError();
+};
 
 const adapter = new PrismaPg({ connectionString });
 

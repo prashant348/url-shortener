@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from "vitest";
-import { DatabaseService } from "../src/services/database.service";
-import { PrismaClient } from "../src/generated/prisma/client";
+import { DatabaseService } from "../../src/services/database.service";
+import { PrismaClient } from "../../src/generated/prisma/client";
 
 describe('Database connect()', () => {
     it("should change status to connected on successful connection", async () => {
