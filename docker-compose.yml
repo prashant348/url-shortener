@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: url-shortener-db
+    ports:
+      - "5433:5432" # 5433 host, 5432 container
+    env_file:
+      - .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+
+  express:
+    build: .
+    container_name: url-shortener-server
+    restart: always
+    ports:
+      - "5000:5000"
+    env_file:
+      - .env
+    environment:
+      NODE_ENV: production
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:
