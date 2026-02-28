@@ -67,7 +67,7 @@ Build a **deployable, production-ready URL shortener** that evolves from a simpl
 - [x] **PostgreSQL Docker Setup**
   - `docker-compose.yml` for local development
   - PostgreSQL container setup
-- [ ] **Express Server Docker Setup**
+- [x] **Express Server Docker Setup**
   - `Dokerfile` for express server
   - `docker-compose.yml` for local development
   - Express server container setup 
